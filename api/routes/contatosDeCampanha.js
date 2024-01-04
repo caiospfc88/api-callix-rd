@@ -1,6 +1,7 @@
 module.exports = async function(app){
     app.get('/contatosDeCampanha', function(req,res){  
     const http = require("https");
+    const token = process.env.TOKEN_CALLIX
   
       const options = {
         "method": "GET",
@@ -9,9 +10,11 @@ module.exports = async function(app){
         "path": "/api/v1/campaign_contacts?filter[campaign_id]=10",
         "headers": {
           "Content-Type": "application/json",
-          "Authorization": "Bearer" + '' + process.env.TOKEN_CALLIX
+          "Authorization": token
         }
       };
+
+      console.log(options);
   
       req = http.request(options, function (res) {
         const chunks = [];
