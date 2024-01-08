@@ -28,9 +28,8 @@ module.exports = async function(app){
   
         res.on("end", function () {
           const body = Buffer.concat(chunks);
-          console.log(body.toString());
-          res1.send(body.toString());
-       
+          const dados = body.toString();
+          res1.send(dados);
         });
         
       });
