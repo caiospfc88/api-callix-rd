@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 consign()
 	.include('api/routes')
-	.then('api/models')
+	//.then('api/models')
 	.then('api/controllers')
 	.into(app);
 
