@@ -1,9 +1,9 @@
 module.exports = async function(app){
-    app.get('/contatosDeCampanha', function(req,res){  
+    app.get('/contatosDeCampanha/:id', function(req,res1){  
       require('dotenv').config();
       const http = require("https");
       const token = process.env.TOKEN_CALLIX
-      var idCampanha = req.headers.id_campanha;
+      var idCampanha = req.params.id;
   
       const options = {
         "method": "GET",
@@ -29,10 +29,11 @@ module.exports = async function(app){
         res.on("end", function () {
           const body = Buffer.concat(chunks);
           console.log(body.toString());
-        });
+          res1.send(body.toString());
        
+        });
+        
       });
-      
       req.end();
     });
     };
