@@ -16,9 +16,6 @@ module.exports = async function(app){
         }
       };
 
-      console.log(idCampanha);
-      console.log(options);
-  
       req = http.request(options, function (res) {
         const chunks = [];
   
