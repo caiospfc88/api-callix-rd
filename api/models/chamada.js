@@ -10,7 +10,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      models.chamada.hasOne(models.operador);
+      models.chamada.hasOne(models.qualificacao);
+      models.chamada.hasOne(models.cliente);
+      models.chamada.hasOne(models.campanha);
+      models.chamada.hasOne(models.motivo_desligo);
     }
   }
   chamada.init({

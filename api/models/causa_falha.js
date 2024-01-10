@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      models.causa_falha.hasMany(models.chamada_nao_completada);
     }
   }
   causa_falha.init({
