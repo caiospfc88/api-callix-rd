@@ -1,5 +1,5 @@
 module.exports = async function(app){
-  app.get('/chamadasCompletadasCampanha', function(req,res){  
+  app.get('/chamadasCompletadasCampanha', function(req,res1){  
     require('dotenv').config();
     const http = require("https");
     const token = process.env.TOKEN_CALLIX
@@ -11,7 +11,7 @@ module.exports = async function(app){
       "method": "GET",
       "hostname": "groscon.callix.com.br",
       "port": null,
-      "path": "/api/v1/campaign_completed_calls?filter[started_at]="+dth_inicial+"T00:00:00.000Z,"+dth_final+"T23:59:59.999Z&filter[campaign_id]="+ idCampanha,
+      "path": "/api/v1/campaign_completed_calls?filter[started_at]="+dth_inicial+"T00:00:00.000Z,"+dth_final+"T23:59:59.999Z&filter[campaign]="+ idCampanha,
       "headers": {
         "Content-Type": "application/json",
         "Authorization": token
@@ -27,10 +27,11 @@ module.exports = async function(app){
 
       res.on("end", function () {
         const body = Buffer.concat(chunks);
-        console.log(body.toString());
+        const dados = body.toString();
+        res1.send(dados);
       });
+      
     });
-
     req.end();
   });
   };
