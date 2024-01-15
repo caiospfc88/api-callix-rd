@@ -20,7 +20,7 @@ module.exports = {
       type: 'foreign key',
       name: 'id_campanha_cna_fk',
       references:{
-        table : 'campanhas',
+        table : 'campanha',
         field : 'id_campanha' 
       },
       onDelete: 'cascade',
@@ -31,7 +31,7 @@ module.exports = {
       type: 'foreign key',
       name: 'id_cliente_cna_fk',
       references:{
-        table : 'clientes',
+        table : 'cliente',
         field : 'id_cliente' 
       },
       onDelete: 'cascade',

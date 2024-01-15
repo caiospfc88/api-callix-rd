@@ -8,7 +8,7 @@ module.exports = {
       type: 'foreign key',
       name: 'id_motivo_desligo_fk',
       references:{
-        table : 'motivo_desligos',
+        table : 'motivo_desligo',
         field : 'id_motivo_desligo' 
       },
       onDelete: 'cascade',
@@ -19,7 +19,7 @@ module.exports = {
       type: 'foreign key',
       name: 'id_campanha_c_fk',
       references:{
-        table : 'campanhas',
+        table : 'campanha',
         field : 'id_campanha' 
       },
       onDelete: 'cascade',
@@ -30,7 +30,7 @@ module.exports = {
       type: 'foreign key',
       name: 'id_cliente_c_fk',
       references:{
-        table : 'clientes',
+        table : 'cliente',
         field : 'id_cliente' 
       },
       onDelete: 'cascade',
@@ -52,7 +52,7 @@ module.exports = {
       type: 'foreign key',
       name: 'id_operador_fk',
       references:{
-        table : 'operadores',
+        table : 'operador',
         field : 'id_operador' 
       },
       onDelete: 'cascade',
