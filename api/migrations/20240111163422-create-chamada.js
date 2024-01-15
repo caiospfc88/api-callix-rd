@@ -28,44 +28,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       id_motivo_desligo: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'motivo_desligo',
-          key: 'id_motivo'
-        }
+        type: Sequelize.INTEGER
       },
       id_campanha: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        references: {
-          model: 'campanha',
-          key: 'id_campanha'
-        }
+        type: Sequelize.STRING
       },
       id_cliente: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        references: {
-          model: 'cliente',
-          key: 'id_cliente'
-        }
+        type: Sequelize.STRING
       },
       id_qualificacao: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        references: {
-          model: 'qualificacao',
-          key: 'id_qualificacao'
-        }
+        type: Sequelize.STRING
       },
       id_operador: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        references: {
-          model: 'operador',
-          key: 'id_usuario'
-        }
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

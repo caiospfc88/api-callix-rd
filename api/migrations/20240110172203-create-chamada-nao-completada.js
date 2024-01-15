@@ -25,28 +25,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       id_falha: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'causa_falha',
-          key: 'id_falha'
-        }
+        type: Sequelize.INTEGER
       },
       id_campanha: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        references: {
-          model: 'campanha',
-          key: 'id_campanha'
-        }
+        type: Sequelize.STRING
       },
       id_cliente: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        references: {
-          model: 'cliente',
-          key: 'id_cliente'
-        }
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
