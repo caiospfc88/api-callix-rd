@@ -10,6 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       id_falha: {
+        unique: true,
         type: Sequelize.INTEGER
       },
       descricao: {

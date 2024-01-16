@@ -10,7 +10,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       id_motivo: {
-        type: Sequelize.INTEGER
+        unique: true,
+        type: Sequelize.INTEGER,
       },
       descricao: {
         type: Sequelize.STRING

@@ -10,6 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       id_chamada: {
+        unique: true,
         type: Sequelize.STRING
       },
       dth_inicio: {
