@@ -11,6 +11,7 @@ module.exports = {
       },
       id_cliente: {
         unique: true,
+        allowNull: false,
         type: Sequelize.STRING
       },
       emissao: {

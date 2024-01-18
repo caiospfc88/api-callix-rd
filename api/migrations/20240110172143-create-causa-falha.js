@@ -9,7 +9,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_falha: {
+      id_falha: {        
+        allowNull: false,
         unique: true,
         type: Sequelize.INTEGER
       },

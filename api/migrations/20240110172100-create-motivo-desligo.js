@@ -10,6 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       id_motivo: {
+        allowNull: false,
         unique: true,
         type: Sequelize.INTEGER,
       },

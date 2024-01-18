@@ -10,6 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       id_qualificacao: {
+        allowNull: false,
         unique:true,
         type: Sequelize.STRING
       },

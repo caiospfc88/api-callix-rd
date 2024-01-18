@@ -9,7 +9,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_campanha: {
+      id_campanha: {        
+        allowNull: false,
         unique: true,
         type: Sequelize.STRING
       },

@@ -9,7 +9,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_chamada: {
+      id_chamada: {        
+        allowNull: false,
         unique: true,
         type: Sequelize.STRING
       },

@@ -9,7 +9,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_tentativa: {
+      id_tentativa: {        
+        allowNull: false,
         unique: true,
         type: Sequelize.STRING
       },
