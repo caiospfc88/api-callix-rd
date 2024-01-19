@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 
 consign()
 	.include('api/routes')
-	.then('api/controllers')
 	.into(app);
 
 module.exports = app;

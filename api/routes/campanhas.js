@@ -1,5 +1,6 @@
 module.exports = async function(app){
-    app.get('/campanhas', function(req,res1){  
+  
+  app.get('/campanhas', function(req,res1){  
       require('dotenv').config();
       const http = require("https");
       const token = process.env.TOKEN_CALLIX
@@ -25,7 +26,14 @@ module.exports = async function(app){
         res.on("end", function () {
           const body = Buffer.concat(chunks);
           const dados = body.toString();
-          res1.send(dados);
+          const dados1 = JSON.parse(dados);
+          
+          console.log(dados1.data[10].id);
+          console.log(dados1.data[10].attributes.name);
+          console.log(dados1)
+          
+          
+          res1.send(dados1);
         });
         
       });
