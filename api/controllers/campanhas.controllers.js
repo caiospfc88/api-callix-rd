@@ -2,13 +2,13 @@ const CampanhaDAO = require('./DAOs/campanha.dao');
 
 const campanhaDao = new CampanhaDAO();
 
-export async function list(request){
+/*export async function list(request){
     const { params } = request;
     
     return await campanhaDao.findAll(params);
 };
-
-export function retornaArrayCampanha(campanha){
+*/
+module.exports.retornaArrayCampanha = async function (campanha){
     let campanhaArray = [];
     campanha.array.forEach(element => {
         campanhaArray.push(element.id,element.attributes.name)
