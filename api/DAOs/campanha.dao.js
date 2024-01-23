@@ -1,6 +1,8 @@
-import { instances } from 'sequelize';
+/*const instances = require('sequelize');
 
 export default class CampanhaDAO {
+    
+    
     model = instances.getModel('campanha');
 
 
@@ -26,3 +28,4 @@ export default class CampanhaDAO {
         return campanha.destroy({ where });
     }
 }
+*/
