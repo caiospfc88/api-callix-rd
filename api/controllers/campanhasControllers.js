@@ -1,40 +1,25 @@
 const CampanhaDAO = require('../DAOs/campanha.dao');
 require('dotenv').config();
 const http = require("https");
-const token = process.env.TOKEN_CALLIX
+const token = process.env.TOKEN_CALLIX;
+const axios = require("axios");
 
-module.exports.retornaArrayCampanha = async function (req,res){
-    
-      const options = {
-        "method": "GET",
-        "hostname": "groscon.callix.com.br",
-        "port": null,
-        "path": "/api/v1/campaigns",
-        "headers": {
-          "Content-Type": "application/json",
-          "Authorization": token
+module.exports.retornaArrayCampanha = async function (app,req,res1){
+      
+    const options = {
+        method: 'GET',
+        url: 'https://groscon.callix.com.br/api/v1/campaigns',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: token
         }
-      };
+    };
 
-      req = http.request(options, function (res1) {
-        const chunks = [];
-  
-        res1.on("data", function (chunk) {
-          chunks.push(chunk);
-          const body = Buffer.concat(chunks);
-          const dados = body.toString();
-          const dados1 = JSON.parse(dados);
-          console.log(dados1.data[10].id);
-          console.log(dados1.data[10].attributes.name);
-          
-        });
-  
-        res1.on("end", function () {             
-        });
-      });
-      
-      req.end();
-      //console.log('res1',res1);
-      //console.log('req',req.end());
-      
+    axios.request(options).then(function (response) {
+      console.log(response.data);
+      console.log(response.data[10].id);
+      console.log(response.data[10].attributes.name);
+    }).catch(function (error) {
+      console.error(error);
+    });
 };
