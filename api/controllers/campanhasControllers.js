@@ -4,7 +4,9 @@ const http = require("https");
 const token = process.env.TOKEN_CALLIX;
 const axios = require("axios");
 
-module.exports.retornaArrayCampanha = async function (app,req,res1){
+let dados = [];
+
+module.exports.retornaArrayCampanha = async function (app,req,res){
       
     const options = {
         method: 'GET',
@@ -15,11 +17,13 @@ module.exports.retornaArrayCampanha = async function (app,req,res1){
         }
     };
 
-    axios.request(options).then(function (response) {
-      console.log(response.data);
-      console.log(response.data[10].id);
-      console.log(response.data[10].attributes.name);
+    dados = axios.request(options).then(function (response) {
+      //console.log(response.data);
+      const dados1 = response.data;
+      console.log(dados1.data[10].id);
+      return dados1.data;
     }).catch(function (error) {
       console.error(error);
     });
+    return dados
 };
