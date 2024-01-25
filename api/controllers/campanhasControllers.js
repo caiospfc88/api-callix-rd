@@ -17,13 +17,16 @@ module.exports.retornaArrayCampanha = async function (app,req,res){
         }
     };
 
-    dados = axios.request(options).then(function (response) {
+    res = await axios.request(options).then(function (response) {
       //console.log(response.data);
-      const dados1 = response.data;
-      console.log(dados1.data[10].id);
-      return dados1.data;
+      dados = response.data;
+      
+      
     }).catch(function (error) {
       console.error(error);
     });
-    return dados
+    //console.log(dados[10].attributes.name)
+    console.log(res)
+    
+    
 };
