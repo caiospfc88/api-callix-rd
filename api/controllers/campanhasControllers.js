@@ -1,4 +1,3 @@
-const CampanhaDAO = require('../DAOs/campanha.dao');
 require('dotenv').config();
 const token = process.env.TOKEN_CALLIX;
 const axios = require("axios");
@@ -15,7 +14,7 @@ module.exports.retornaArrayCampanha = async function (app,req,res){
           Authorization: token
         }
     };
-
+    console.log(options);
     await axios.request(options).then(function (response) {
       //console.log(response.data);
     dados = response.data.data;
