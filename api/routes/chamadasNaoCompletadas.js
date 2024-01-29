@@ -6,6 +6,7 @@ module.exports = async function(app){
     var idCampanha = req.query.id;
     let dth_inicial = req.query.dth_inicial;
     let dth_final = req.query.dth_final;
+    console.log('reqQuery',req.query.id,req.query.dth_inicial,req.query.dth_final)
 
     const options = {
       "method": "GET",
