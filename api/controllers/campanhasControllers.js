@@ -5,7 +5,7 @@ const axios = require("axios");
 
 let dados = [];
 
-module.exports.retornaArrayCampanha = async function (req,res){
+module.exports.retornaArrayCampanha = async function (app,req,res){
       
     const options = {
         method: 'GET',
@@ -24,7 +24,7 @@ module.exports.retornaArrayCampanha = async function (req,res){
     }).catch(function (error) {
       console.error(error);
     });
-    console.log(dados[10]);
+    console.log(dados);
     
     res.send(dados);
     

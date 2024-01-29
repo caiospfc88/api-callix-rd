@@ -4,11 +4,11 @@ const axios = require("axios");
 
 let dados = [];
 
-module.exports.retornaArrayChamadas = async function (app,req,res,idCampanha,dti,dtf){
+module.exports.retornaArrayChamadas = async function (app,req,res){
     
-      /*let idCampanha = req.query.id;
+      let idCampanha = req.query.id;
       let dti = req.query.dth_inicial;
-      let dtf = req.query.dth_final;*/
+      let dtf = req.query.dth_final;
   
   const options = {
         "method": "GET",
@@ -20,7 +20,7 @@ module.exports.retornaArrayChamadas = async function (app,req,res,idCampanha,dti
           "Authorization": token
         }
     };
-
+    console.log(options)
     await axios.request(options).then(function (response) {
       //console.log(response.data);
     dados = response.data.data;
@@ -29,8 +29,8 @@ module.exports.retornaArrayChamadas = async function (app,req,res,idCampanha,dti
     }).catch(function (error) {
       console.error(error);
     });
-    console.log(dados[10]);
+    console.log(dados);
     
-    app.res.send(dados);
+    res.send(dados);
     
 };
