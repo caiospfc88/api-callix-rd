@@ -16,7 +16,8 @@ module.exports.retornaArrayCampanha = async function (app,req,res){
         },
         transformResponse : [
           function (data) {
-            return JSON.parse(data)
+            var temp = JSON.parse(data)
+            return (temp.data)
               .map(i => ({
                 id : i.id,
                 nome : i.attributes.name
@@ -28,7 +29,7 @@ module.exports.retornaArrayCampanha = async function (app,req,res){
     //console.log(options);
     await axios.request(options).then(function (response) {
     console.log(response.data);
-    dados = response.data.data;
+    dados = response.data;
       
       
     }).catch(function (error) {
