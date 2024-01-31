@@ -1,7 +1,6 @@
 require('dotenv').config();
 const token = process.env.TOKEN_CALLIX;
 const axios = require("axios");
-const { json } = require('body-parser');
 
 let dados = [];
 
