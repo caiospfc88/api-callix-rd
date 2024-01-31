@@ -16,19 +16,34 @@ module.exports.retornaArrayChamadas = async function (app,req,res){
         headers: {
           "Content-Type": "application/json",
           Authorization: token
-        }
+        },
+        transformResponse : [
+          function (data) {
+            var temp = JSON.parse(data)
+            return (temp.data)
+              .map(i => ({
+                id_chamada : i.id,
+                dth_inicio : i.attributes.started_at,
+                dth_fim : i.attributes.ended_at,
+                duracao_segundos : i.attributes.duration,
+                tel_destino : i.attributes.destination_phone,
+                protocolo : i.attributes.protocol,
+                id_motivo_desligo : i.attributes.hangup_cause,
+                id_campanha : i.relationships.campaign.data.id,
+                id_cliente : i.relationships.campaign_contact.data.id,
+                id_qualificacao : i.relationships.qualification?.data?.id || '0',
+                id_operador : i.relationships.agent.data.id
+              }));           
+          }
+        ]
     };
-    console.log('options',options)
+    //console.log('options',options)
     await axios.request(options).then(function (response) {
-      //console.log(response.data);
-    dados = response.data.data;
-      
-      
-    }).catch(function (error) {
-      console.error(error);
-    });
-    console.log(dados);
-    
-    res.send(dados);
-    
-};
+      dados = response.data;   
+      //console.log(dados.data[1].relationships.qualification.data.id);
+      }).catch(function (error) {
+        console.error(error);
+      });
+      console.log(dados);
+      res.send(dados);
+  };
