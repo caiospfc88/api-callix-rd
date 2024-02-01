@@ -14,7 +14,7 @@ module.exports.retornaArrayContatos = async function (app,req,res){
         headers: {
           'Content-Type': 'application/json',
           Authorization: token
-        }/*,
+        },
         transformResponse : [
           function (data) {
             var temp = JSON.parse(data)
@@ -23,21 +23,21 @@ module.exports.retornaArrayContatos = async function (app,req,res){
                 id_cliente : i.id,
                 emissao : i.attributes.created_at,
                 nome : i.attributes.nome,
-                telefone1 : i.attributes.telefone1,
-                protocolo : i.attributes.protocol,
-                id_motivo_desligo : i.attributes.hangup_cause,
-                id_campanha : i.relationships.campaign.data.id,
-                id_cliente : i.relationships.campaign_contact.data.id,
-                id_qualificacao : i.relationships.qualification?.data?.id || '0',
-                id_operador : i.relationships.agent.data.id
+                telefone1 : i.attributes["telefone 1"] || '0',
+                telefone2 : i.attributes["telefone 2"] || '0',
+                telefone3 : i.attributes["telefone 3"] || '0',
+                produto : i.attributes.produto,
+                email : i.attributes.email,
+                aceitou_proposta : i.attributes["aceitou proposta"] || '0',
+                uf : i.attributes.uf || '0',
+                status_negociacao : i.attributes["status negociacao"] || '0'                
               }));           
           }
-        ]*/
+        ]
     };
     console.log()
     //console.log(options);
     await axios.request(options).then(function (response) {
-    console.log(response.data);
     dados = response.data;
     console.log(dados.data[1].attributes)   
     }).catch(function (error) {
