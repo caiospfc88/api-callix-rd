@@ -28,21 +28,18 @@ module.exports.retornaArrayContatos = async function (app,req,res){
                 telefone3 : i.attributes["telefone 3"] || '0',
                 produto : i.attributes.produto,
                 email : i.attributes.email,
-                aceitou_proposta : i.attributes["aceitou proposta"] || '0',
+                aceitou_proposta : i.attributes["aceitou proposta"] || 'null',
                 uf : i.attributes.uf || '0',
-                status_negociacao : i.attributes["status negociacao"] || '0'                
+                status_negociacao : i.attributes["status negociacao"] || 'null'                
               }));           
           }
         ]
     };
     console.log()
-    //console.log(options);
     await axios.request(options).then(function (response) {
     dados = response.data;
-    console.log(dados.data[1].attributes)   
     }).catch(function (error) {
       console.error(error);
     });
-    //console.log(dados);
     res.send(dados);
 };
