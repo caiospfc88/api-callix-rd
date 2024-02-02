@@ -10,7 +10,7 @@ module.exports.retornaArrayChamadas = async function (app,req,res){
       let dti = req.query.dth_inicial;
       let dtf = req.query.dth_final;
   
-  const options = {
+    const options = {
         method: 'GET',
         url: "https://groscon.callix.com.br/api/v1/campaign_completed_calls?filter[started_at]="+dti+"T00:00:00.000Z,"+dtf+"T23:59:59.999Z&filter[campaign]="+idCampanha,
         headers: {
@@ -40,7 +40,6 @@ module.exports.retornaArrayChamadas = async function (app,req,res){
     //console.log('options',options)
     await axios.request(options).then(function (response) {
       dados = response.data;   
-      //console.log(dados.data[1].relationships.qualification.data.id);
       }).catch(function (error) {
         console.error(error);
       });

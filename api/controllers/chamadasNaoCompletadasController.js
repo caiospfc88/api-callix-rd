@@ -42,7 +42,7 @@ module.exports.retornaArrayChamadasNaoCompletadas = async function (app,req,res)
       }).catch(function (error) {
         console.error(error);
       });
-      console.log(dados);
+      //console.log(dados);
       res.send(dados);
     
 };
