@@ -26,14 +26,10 @@ module.exports.retornaArrayOperadores = async function (app,req,res){
           }
         ]
     };
-    console.log()
-    //console.log(options);
     await axios.request(options).then(function (response) {
-    console.log(response.data);
     dados = response.data;   
     }).catch(function (error) {
       console.error(error);
     });
-    //console.log(dados);
     res.send(dados);
 };

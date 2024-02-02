@@ -35,7 +35,6 @@ module.exports.retornaArrayContatos = async function (app,req,res){
           }
         ]
     };
-    console.log()
     await axios.request(options).then(function (response) {
     dados = response.data;
     }).catch(function (error) {
